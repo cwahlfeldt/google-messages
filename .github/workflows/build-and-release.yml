@@ -109,6 +109,7 @@ jobs:
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v1
         with:
+          token: ${{ secrets.GH_TOKEN }}
           files: |
             ./artifacts/**/*.dmg
             ./artifacts/**/*.exe
@@ -134,5 +135,3 @@ jobs:
             
             ### Note on macOS Security
             This app is not signed with an Apple Developer certificate, so macOS will show security warnings. This is normal for unsigned applications. The app is safe to use - it simply wraps Google Messages in a desktop window.
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
