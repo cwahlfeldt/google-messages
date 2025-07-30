@@ -132,6 +132,7 @@ screenshots/
 *.gif
 *.webp
 !assets/icon.png
+!icon.png
 
 # Flatpak build files
 .flatpak-builder/

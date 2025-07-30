@@ -7,7 +7,7 @@ $packageArgs = @{
   packageName   = $packageName
   unzipLocation = $toolsDir
   fileType      = 'exe'
-  url64bit      = "https://github.com/YOUR_USERNAME/google-messages-app/releases/download/v$version/GoogleMessages-v$version-win.exe"
+  url64bit      = "https://github.com/cwahlfeldt/google-messages/releases/download/v$version/GoogleMessages-v$version-win.exe"
   
   softwareName  = 'Google Messages*'
   

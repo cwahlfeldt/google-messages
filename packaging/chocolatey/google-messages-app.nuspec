@@ -3,18 +3,18 @@
   <metadata>
     <id>google-messages-app</id>
     <version>1.0.0</version>
-    <packageSourceUrl>https://github.com/YOUR_USERNAME/google-messages-app</packageSourceUrl>
-    <owners>Your Name</owners>
+    <packageSourceUrl>https://github.com/cwahlfeldt/google-messages</packageSourceUrl>
+    <owners>Chris Wahlfeldt</owners>
     <title>Google Messages App</title>
-    <authors>Your Name</authors>
-    <projectUrl>https://github.com/YOUR_USERNAME/google-messages-app</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/YOUR_USERNAME/google-messages-app/main/assets/icon.png</iconUrl>
-    <copyright>2025 Your Name</copyright>
-    <licenseUrl>https://github.com/YOUR_USERNAME/google-messages-app/blob/main/LICENSE</licenseUrl>
+    <authors>Chris Wahlfeldt</authors>
+    <projectUrl>https://github.com/cwahlfeldt/google-messages</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/cwahlfeldt/google-messages/main/assets/icon.png</iconUrl>
+    <copyright>2025 Chris Wahlfeldt</copyright>
+    <licenseUrl>https://github.com/cwahlfeldt/google-messages/blob/main/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectSourceUrl>https://github.com/YOUR_USERNAME/google-messages-app</projectSourceUrl>
-    <docsUrl>https://github.com/YOUR_USERNAME/google-messages-app/blob/main/README.md</docsUrl>
-    <bugTrackerUrl>https://github.com/YOUR_USERNAME/google-messages-app/issues</bugTrackerUrl>
+    <projectSourceUrl>https://github.com/cwahlfeldt/google-messages</projectSourceUrl>
+    <docsUrl>https://github.com/cwahlfeldt/google-messages/blob/main/README.md</docsUrl>
+    <bugTrackerUrl>https://github.com/cwahlfeldt/google-messages/issues</bugTrackerUrl>
     <tags>google messages messaging sms electron desktop</tags>
     <summary>Desktop Google Messages application built with Electron</summary>
     <description><![CDATA[
@@ -35,7 +35,7 @@ This application is a web wrapper that loads Google Messages (https://messages.g
 
 The app provides desktop integration features like native window management, system tray integration, keyboard shortcuts, and desktop notifications.
 ]]></description>
-    <releaseNotes>https://github.com/YOUR_USERNAME/google-messages-app/releases/tag/v1.0.0</releaseNotes>
+    <releaseNotes>https://github.com/cwahlfeldt/google-messages/releases/tag/v1.0.0</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

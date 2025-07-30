@@ -26,8 +26,8 @@ A desktop application for Google Messages built with Electron, providing a nativ
 ### Quick Setup
 ```bash
 # Clone and install
-git clone https://github.com/YOUR_USERNAME/google-messages-app.git
-cd google-messages-app
+git clone https://github.com/cwahlfeldt/google-messages.git
+cd google-messages
 npm install
 
 # Set up environment (optional - for distribution)
@@ -103,29 +103,33 @@ The app provides desktop integration features like:
 - Desktop notifications
 - Native menus
 
-## Distribution Setup
+## Distribution
 
-For distributing the app through package managers and app stores, see:
-- **[DISTRIBUTION-PLAN.md](./DISTRIBUTION-PLAN.md)** - Complete distribution strategy
-- **[INSTALLATION.md](./INSTALLATION.md)** - User installation guide
-- **Environment Setup**: Run `./scripts/setup-env.sh` for guided setup
+This app is distributed **unsigned** (no Apple Developer account required). Users will see security warnings on macOS, but this is normal for unsigned applications.
 
-### Quick Distribution Setup
+### Release Process
 ```bash
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your certificates and API keys
-
-# Validate build environment
-./scripts/validate-build.sh
-
-# Encode certificates for GitHub Secrets
-./scripts/encode-certificate.sh
-
-# Create a release (triggers CI/CD)
+# Create a release tag (triggers automated builds)
 git tag v1.0.0
 git push origin v1.0.0
 ```
+
+This triggers GitHub Actions to build for all platforms and create a release with:
+- **macOS**: `.dmg` file (unsigned - users need to bypass Gatekeeper)
+- **Windows**: `.exe` installer 
+- **Linux**: `.AppImage` and `.deb` files
+
+### macOS Installation (Unsigned App)
+Users need to:
+1. Download the `.dmg` from GitHub releases
+2. Right-click the app and select "Open" 
+3. Click "Open" in the security dialog to bypass Gatekeeper
+
+### Distribution Channels
+- **Direct Downloads**: GitHub releases (primary method)
+- **Package Managers**: Limited due to unsigned status
+  - Homebrew: Not accepted (requires code signing)
+  - Linux: AppImage and DEB work fine
 
 ## Troubleshooting
 

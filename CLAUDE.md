@@ -54,26 +54,25 @@ git tag v1.0.0             # Create version tag
 git push origin v1.0.0     # Push tag (triggers CI/CD pipeline)
 ```
 
-## Code Signing and Distribution
+## Distribution Strategy
 
-### Requirements for Full Distribution
-- **macOS**: Apple Developer account ($99/year) required for code signing and notarization
-- **Windows**: Code signing certificate recommended for trust
-- **Linux**: No signing required, but GPG signing available for APT packages
-
-### Environment Variables (see .env.example)
-All sensitive credentials are managed through environment variables:
-- Apple Developer credentials and certificates (base64 encoded)
-- Windows code signing certificates
-- GitHub tokens for releases and package manager updates
-- Package manager API keys (Chocolatey, etc.)
+### Unsigned Distribution Approach
+This project uses **unsigned distribution** (no Apple Developer account required):
+- **macOS**: DMG files are unsigned, users will see Gatekeeper warnings
+- **Windows**: Standard NSIS installer (no code signing certificate)
+- **Linux**: AppImage and DEB packages work without signing
 
 ### CI/CD Pipeline
 GitHub Actions workflow triggers on version tags and:
-1. Builds for all platforms (macOS, Windows, Linux)
-2. Code signs applications (when certificates available)
-3. Creates GitHub releases with platform-specific installers
-4. Updates package managers automatically where possible
+1. Builds for all platforms (macOS, Windows, Linux) 
+2. Creates GitHub releases with platform-specific installers
+3. No code signing or notarization required
+
+### User Installation (macOS)
+Users must bypass macOS Gatekeeper for unsigned apps:
+1. Download DMG from GitHub releases
+2. Right-click app and select "Open" 
+3. Click "Open" in security dialog
 
 ## Security Model
 
@@ -84,11 +83,11 @@ GitHub Actions workflow triggers on version tags and:
 - External links automatically open in default browser
 - Content Security Policy configured for Google Messages domain
 
-### Certificate Management
-- All certificates stored as base64-encoded GitHub secrets
-- Helper scripts provided for secure certificate encoding
-- Temporary keychains used during CI builds
-- No certificates or private keys stored in repository
+### Simplified Environment Variables
+Only basic environment variables needed (see .env.example):
+- NODE_ENV for build environment
+- Optional notification webhooks
+- GitHub token is automatically provided by Actions
 
 ## Development Workflow
 

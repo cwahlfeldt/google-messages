@@ -1,7 +1,7 @@
 # Created using wingetcreate
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.version.1.4.0.schema.json
 
-PackageIdentifier: YourName.GoogleMessagesApp
+PackageIdentifier: ChrisWahlfeldt.GoogleMessagesApp
 PackageVersion: 1.0.0
 DefaultLocale: en-US
 ManifestType: version
@@ -10,19 +10,19 @@ ManifestVersion: 1.4.0
 ---
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.4.0.schema.json
 
-PackageIdentifier: YourName.GoogleMessagesApp
+PackageIdentifier: ChrisWahlfeldt.GoogleMessagesApp
 PackageVersion: 1.0.0
 PackageLocale: en-US
-Publisher: Your Name
-PublisherUrl: https://github.com/YOUR_USERNAME
-PublisherSupportUrl: https://github.com/YOUR_USERNAME/google-messages-app/issues
-Author: Your Name
+Publisher: Chris Wahlfeldt
+PublisherUrl: https://github.com/cwahlfeldt
+PublisherSupportUrl: https://github.com/cwahlfeldt/google-messages/issues
+Author: Chris Wahlfeldt
 PackageName: Google Messages App
-PackageUrl: https://github.com/YOUR_USERNAME/google-messages-app
+PackageUrl: https://github.com/cwahlfeldt/google-messages
 License: MIT
-LicenseUrl: https://github.com/YOUR_USERNAME/google-messages-app/blob/main/LICENSE
-Copyright: Copyright (c) 2025 Your Name
-CopyrightUrl: https://github.com/YOUR_USERNAME/google-messages-app/blob/main/LICENSE
+LicenseUrl: https://github.com/cwahlfeldt/google-messages/blob/main/LICENSE
+Copyright: Copyright (c) 2025 Chris Wahlfeldt
+CopyrightUrl: https://github.com/cwahlfeldt/google-messages/blob/main/LICENSE
 ShortDescription: Desktop Google Messages application built with Electron
 Description: |-
   A desktop application for Google Messages built with Electron, providing a native desktop experience for Google's web-based messaging service.
@@ -36,7 +36,7 @@ Description: |-
   - Security configurations with context isolation
   
   This application is a web wrapper that loads Google Messages in a dedicated window and does not modify Google's code.
-Moniker: google-messages-app
+Moniker: google-messages
 Tags:
 - electron
 - google
@@ -53,19 +53,19 @@ ReleaseNotes: |-
   - Comprehensive keyboard shortcuts and application menu
   - Cross-platform window management
   - Security configurations with context isolation
-ReleaseNotesUrl: https://github.com/YOUR_USERNAME/google-messages-app/releases/tag/v1.0.0
-PurchaseUrl: https://github.com/YOUR_USERNAME/google-messages-app
+ReleaseNotesUrl: https://github.com/cwahlfeldt/google-messages/releases/tag/v1.0.0
+PurchaseUrl: https://github.com/cwahlfeldt/google-messages
 InstallationNotes: The application will be available in your Start Menu and Desktop after installation.
 Documentations:
 - DocumentLabel: README
-  DocumentUrl: https://github.com/YOUR_USERNAME/google-messages-app/blob/main/README.md
+  DocumentUrl: https://github.com/cwahlfeldt/google-messages/blob/main/README.md
 ManifestType: defaultLocale
 ManifestVersion: 1.4.0
 
 ---
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.4.0.schema.json
 
-PackageIdentifier: YourName.GoogleMessagesApp
+PackageIdentifier: ChrisWahlfeldt.GoogleMessagesApp
 PackageVersion: 1.0.0
 Platform:
 - Windows.Desktop
@@ -85,7 +85,7 @@ FileExtensions:
 - mms
 Installers:
 - Architecture: x64
-  InstallerUrl: https://github.com/YOUR_USERNAME/google-messages-app/releases/download/v1.0.0/GoogleMessages-v1.0.0-win.exe
+  InstallerUrl: https://github.com/cwahlfeldt/google-messages/releases/download/v1.0.0/GoogleMessages-v1.0.0-win.exe
   InstallerSha256: PUT_ACTUAL_SHA256_HERE
   InstallerSwitches:
     Silent: /S

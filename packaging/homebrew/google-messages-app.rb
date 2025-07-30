@@ -2,10 +2,10 @@ cask "google-messages-app" do
   version "1.0.0"
   sha256 :no_check # Will be updated automatically
 
-  url "https://github.com/YOUR_USERNAME/google-messages-app/releases/download/v#{version}/GoogleMessages-v#{version}-mac.dmg"
+  url "https://github.com/cwahlfeldt/google-messages/releases/download/v#{version}/GoogleMessages-v#{version}-mac.dmg"
   name "Google Messages"
   desc "Desktop Google Messages application built with Electron"
-  homepage "https://github.com/YOUR_USERNAME/google-messages-app"
+  homepage "https://github.com/cwahlfeldt/google-messages"
 
   livecheck do
     url :url
@@ -18,9 +18,9 @@ cask "google-messages-app" do
 
   zap trash: [
     "~/Library/Application Support/google-messages-app",
-    "~/Library/Preferences/com.example.google-messages-app.plist",
-    "~/Library/Caches/com.example.google-messages-app",
+    "~/Library/Preferences/com.cwahlfeldt.google-messages-app.plist",
+    "~/Library/Caches/com.cwahlfeldt.google-messages-app",
     "~/Library/Logs/google-messages-app",
-    "~/Library/Saved Application State/com.example.google-messages-app.savedState",
+    "~/Library/Saved Application State/com.cwahlfeldt.google-messages-app.savedState",
   ]
 end

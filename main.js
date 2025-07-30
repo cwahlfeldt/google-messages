@@ -19,6 +19,12 @@ function createWindow() {
     minWidth: 800,
     minHeight: 600,
     title: "Google Messages",
+    // titleBarStyle: "hidden",
+    // titleBarOverlay: {
+    //   color: "#2f3241",
+    //   symbolColor: "#74b1be",
+    //   height: 60,
+    // },
     icon: path.join(__dirname, "assets", "icon.png"),
     webPreferences: {
       nodeIntegration: false,

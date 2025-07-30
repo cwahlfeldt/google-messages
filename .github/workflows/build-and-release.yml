@@ -39,39 +39,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Setup macOS signing
-        if: matrix.platform == 'mac'
-        env:
-          APPLE_ID: ${{ secrets.APPLE_ID }}
-          APPLE_ID_PASS: ${{ secrets.APPLE_ID_PASS }}
-          TEAM_ID: ${{ secrets.TEAM_ID }}
-        run: |
-          echo "Setting up macOS code signing"
-          # Import certificates from secrets
-          if [ -n "${{ secrets.APPLE_CERT_DATA }}" ]; then
-            echo "${{ secrets.APPLE_CERT_DATA }}" | base64 -d > certificate.p12
-            security create-keychain -p "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
-            security default-keychain -s build.keychain
-            security unlock-keychain -p "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
-            security import certificate.p12 -k build.keychain -P "${{ secrets.APPLE_CERT_PASSWORD }}" -T /usr/bin/codesign
-            security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "${{ secrets.KEYCHAIN_PASSWORD }}" build.keychain
-            rm certificate.p12
-          fi
-
-      - name: Setup Windows signing
-        if: matrix.platform == 'win'
-        run: |
-          echo "Setting up Windows code signing"
-          # Windows signing setup would go here
-          # Requires certificate setup in secrets
-
       - name: Build application
-        env:
-          APPLE_ID: ${{ secrets.APPLE_ID }}
-          APPLE_ID_PASS: ${{ secrets.APPLE_ID_PASS }}
-          TEAM_ID: ${{ secrets.TEAM_ID }}
-          WIN_CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
-          WIN_CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
         run: |
           if [ "${{ matrix.platform }}" = "mac" ]; then
             npm run build:mac
@@ -138,72 +106,33 @@ jobs:
             - **Flatpak (Linux)**: `flatpak install com.example.GoogleMessagesApp` _(coming soon)_
             - **Chocolatey (Windows)**: `choco install google-messages-app` _(coming soon)_
 
-      - name: Upload macOS DMG
-        uses: actions/upload-release-asset@v1
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./artifacts/**/*.dmg
+            ./artifacts/**/*.exe
+            ./artifacts/**/*.AppImage
+            ./artifacts/**/*.deb
+          body: |
+            ## Downloads
+            - **macOS**: Download the `.dmg` file (unsigned - see installation instructions)
+            - **Windows**: Download the `.exe` installer 
+            - **Linux**: Download the `.AppImage` or `.deb` file
+            
+            ### Installation Instructions
+            
+            **macOS**: After downloading the DMG:
+            1. Open the DMG file
+            2. Drag the app to Applications folder
+            3. Right-click the app and select "Open" (bypass Gatekeeper warning)
+            4. Click "Open" in the security dialog
+            
+            **Windows**: Run the installer as Administrator
+            
+            **Linux**: Make AppImage executable: `chmod +x GoogleMessages-*.AppImage`
+            
+            ### Note on macOS Security
+            This app is not signed with an Apple Developer certificate, so macOS will show security warnings. This is normal for unsigned applications. The app is safe to use - it simply wraps Google Messages in a desktop window.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/mac-build/Google Messages-${{ github.ref_name }}.dmg
-          asset_name: GoogleMessages-${{ github.ref_name }}-mac.dmg
-          asset_content_type: application/octet-stream
-        continue-on-error: true
-
-      - name: Upload Windows Installer
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/win-build/Google Messages Setup ${{ github.ref_name }}.exe
-          asset_name: GoogleMessages-${{ github.ref_name }}-win.exe
-          asset_content_type: application/octet-stream
-        continue-on-error: true
-
-      - name: Upload Linux AppImage
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/linux-build/Google Messages-${{ github.ref_name }}.AppImage
-          asset_name: GoogleMessages-${{ github.ref_name }}-linux.AppImage
-          asset_content_type: application/octet-stream
-        continue-on-error: true
-
-      - name: Upload Linux DEB
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts/linux-build/google-messages-app_${{ github.ref_name }}_amd64.deb
-          asset_name: google-messages-app_${{ github.ref_name }}_amd64.deb
-          asset_content_type: application/octet-stream
-        continue-on-error: true
-
-  update-package-managers:
-    name: Update Package Managers
-    needs: release
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Update Homebrew Formula
-        env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.HOMEBREW_GITHUB_API_TOKEN }}
-        run: |
-          echo "Updating Homebrew formula"
-          # Script to update homebrew formula would go here
-          # This would create a PR to the homebrew tap repository
-        continue-on-error: true
-
-      - name: Update Flatpak
-        run: |
-          echo "Updating Flatpak manifest"
-          # Script to update flatpak manifest would go here
-          # This would create a PR to flathub repository
-        continue-on-error: true

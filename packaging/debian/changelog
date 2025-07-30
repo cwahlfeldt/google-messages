@@ -9,4 +9,4 @@ google-messages-app (1.0.0) stable; urgency=medium
   * Security configurations with context isolation
   * Build configuration for distribution packaging
 
- -- Your Name <your.email@example.com>  Wed, 30 Jul 2025 10:00:00 +0000
+ -- Chris Wahlfeldt <chriswahlfeldt@gmail.com>  Wed, 30 Jul 2025 10:00:00 +0000

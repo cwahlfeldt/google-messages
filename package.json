@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "Desktop Google Messages application built with Electron",
   "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cwahlfeldt/google-messages.git"
+  },
+  "homepage": "https://github.com/cwahlfeldt/google-messages",
+  "bugs": {
+    "url": "https://github.com/cwahlfeldt/google-messages/issues"
+  },
   "scripts": {
     "start": "electron .",
     "dev": "electron . --dev",
@@ -17,14 +25,18 @@
     "desktop",
     "messaging"
   ],
-  "author": "Your Name",
+  "author": {
+    "name": "Chris Wahlfeldt",
+    "email": "chriswahlfeldt@gmail.com",
+    "url": "https://github.com/cwahlfeldt"
+  },
   "license": "MIT",
   "devDependencies": {
     "electron": "^32.0.0",
     "electron-builder": "^25.0.0"
   },
   "build": {
-    "appId": "com.example.google-messages-app",
+    "appId": "com.cwahlfeldt.google-messages-app",
     "productName": "Google Messages",
     "directories": {
       "output": "dist"
@@ -35,16 +47,20 @@
       "assets/**/*"
     ],
     "mac": {
-      "icon": "assets/icon.icns",
-      "category": "public.app-category.social-networking"
+      "icon": "assets/icon.png",
+      "category": "public.app-category.social-networking",
+      "target": "dmg"
     },
     "win": {
-      "icon": "assets/icon.ico",
+      "icon": "assets/icon.png",
       "target": "nsis"
     },
     "linux": {
       "icon": "assets/icon.png",
-      "target": "AppImage",
+      "target": [
+        "AppImage",
+        "deb"
+      ],
       "category": "Network"
     }
   }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>com.example.GoogleMessagesApp</id>
+  <id>com.cwahlfeldt.GoogleMessagesApp</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
   <name>Google Messages</name>
@@ -21,14 +21,14 @@
       This application is a web wrapper that loads Google Messages in a dedicated window. It does not modify or access Google's code - all authentication and messaging functionality is handled by Google's existing web interface.
     </p>
   </description>
-  <launchable type="desktop-id">com.example.GoogleMessagesApp.desktop</launchable>
+  <launchable type="desktop-id">com.cwahlfeldt.GoogleMessagesApp.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image>https://github.com/YOUR_USERNAME/google-messages-app/raw/main/assets/screenshot.png</image>
+      <image>https://github.com/cwahlfeldt/google-messages/raw/main/assets/screenshot.png</image>
     </screenshot>
   </screenshots>
-  <url type="homepage">https://github.com/YOUR_USERNAME/google-messages-app</url>
-  <url type="bugtracker">https://github.com/YOUR_USERNAME/google-messages-app/issues</url>
+  <url type="homepage">https://github.com/cwahlfeldt/google-messages</url>
+  <url type="bugtracker">https://github.com/cwahlfeldt/google-messages/issues</url>
   <categories>
     <category>Network</category>
     <category>InstantMessaging</category>
