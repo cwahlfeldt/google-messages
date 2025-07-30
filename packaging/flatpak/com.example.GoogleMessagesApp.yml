@@ -1,0 +1,46 @@
+app-id: com.example.GoogleMessagesApp
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+base: org.electronjs.Electron2.BaseApp
+base-version: '23.08'
+command: google-messages-app
+separate-locales: false
+
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --share=network
+  - --device=dri
+  - --filesystem=xdg-download
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --own-name=org.mpris.MediaPlayer2.GoogleMessages
+
+modules:
+  - name: google-messages-app
+    buildsystem: simple
+    build-commands:
+      - chmod +x google-messages-app
+      - install -Dm755 google-messages-app /app/bin/google-messages-app
+      - install -Dm644 com.example.GoogleMessagesApp.desktop /app/share/applications/com.example.GoogleMessagesApp.desktop
+      - install -Dm644 com.example.GoogleMessagesApp.metainfo.xml /app/share/metainfo/com.example.GoogleMessagesApp.metainfo.xml
+      - install -Dm644 icon-256.png /app/share/icons/hicolor/256x256/apps/com.example.GoogleMessagesApp.png
+      - install -Dm644 icon-128.png /app/share/icons/hicolor/128x128/apps/com.example.GoogleMessagesApp.png
+      - install -Dm644 icon-64.png /app/share/icons/hicolor/64x64/apps/com.example.GoogleMessagesApp.png
+    sources:
+      - type: archive
+        url: https://github.com/YOUR_USERNAME/google-messages-app/releases/download/v1.0.0/GoogleMessages-v1.0.0-linux.tar.gz
+        sha256: PUT_ACTUAL_SHA256_HERE
+      - type: file
+        path: com.example.GoogleMessagesApp.desktop
+      - type: file
+        path: com.example.GoogleMessagesApp.metainfo.xml
+      - type: file
+        path: icon-256.png
+      - type: file
+        path: icon-128.png
+      - type: file
+        path: icon-64.png

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Google Messages
+Comment=Desktop Google Messages application
+Exec=google-messages-app %U
+Terminal=false
+Type=Application
+Icon=com.example.GoogleMessagesApp
+StartupWMClass=Google Messages
+MimeType=x-scheme-handler/sms;x-scheme-handler/mms;x-scheme-handler/tel;
+Categories=Network;InstantMessaging;
+Keywords=messaging;sms;chat;google;messages;

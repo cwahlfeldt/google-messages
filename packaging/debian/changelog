@@ -1,0 +1,12 @@
+google-messages-app (1.0.0) stable; urgency=medium
+
+  * Initial release
+  * Complete Electron application wrapper for Google Messages
+  * System tray integration with show/hide functionality
+  * Desktop notifications support with permission request
+  * Comprehensive keyboard shortcuts and application menu
+  * Cross-platform window management and lifecycle handling
+  * Security configurations with context isolation
+  * Build configuration for distribution packaging
+
+ -- Your Name <your.email@example.com>  Wed, 30 Jul 2025 10:00:00 +0000

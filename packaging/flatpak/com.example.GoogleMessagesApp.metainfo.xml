@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.example.GoogleMessagesApp</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Google Messages</name>
+  <summary>Desktop Google Messages application</summary>
+  <description>
+    <p>
+      A desktop application for Google Messages built with Electron, providing a native desktop experience for Google's web-based messaging service.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Native desktop experience without browser tabs</li>
+      <li>System tray integration</li>
+      <li>Desktop notifications</li>
+      <li>Keyboard shortcuts</li>
+      <li>Cross-platform support</li>
+    </ul>
+    <p>
+      This application is a web wrapper that loads Google Messages in a dedicated window. It does not modify or access Google's code - all authentication and messaging functionality is handled by Google's existing web interface.
+    </p>
+  </description>
+  <launchable type="desktop-id">com.example.GoogleMessagesApp.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/YOUR_USERNAME/google-messages-app/raw/main/assets/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://github.com/YOUR_USERNAME/google-messages-app</url>
+  <url type="bugtracker">https://github.com/YOUR_USERNAME/google-messages-app/issues</url>
+  <categories>
+    <category>Network</category>
+    <category>InstantMessaging</category>
+  </categories>
+  <keywords>
+    <keyword>messaging</keyword>
+    <keyword>sms</keyword>
+    <keyword>chat</keyword>
+    <keyword>google</keyword>
+    <keyword>messages</keyword>
+  </keywords>
+  <provides>
+    <binary>google-messages-app</binary>
+  </provides>
+  <releases>
+    <release version="1.0.0" date="2025-01-01">
+      <description>
+        <p>Initial release with core functionality:</p>
+        <ul>
+          <li>Complete Electron application wrapper for Google Messages</li>
+          <li>System tray integration with show/hide functionality</li>
+          <li>Desktop notifications support</li>
+          <li>Comprehensive keyboard shortcuts and application menu</li>
+          <li>Cross-platform window management</li>
+          <li>Security configurations with context isolation</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-chat">intense</content_attribute>
+  </content_rating>
+</component>

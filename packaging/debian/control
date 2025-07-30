@@ -1,0 +1,26 @@
+Package: google-messages-app
+Version: 1.0.0
+Section: net
+Priority: optional
+Architecture: amd64
+Essential: no
+Depends: libnss3, libatk-bridge2.0-0, libdrm2, libxss1, libgconf-2-4, libxrandr2, libasound2, libpangocairo-1.0-0, libatk1.0-0, libcairo-gobject2, libgtk-3-0, libgdk-pixbuf2.0-0
+Recommends: libappindicator3-1
+Installed-Size: 150000
+Maintainer: Your Name <your.email@example.com>
+Homepage: https://github.com/YOUR_USERNAME/google-messages-app
+Description: Desktop Google Messages application
+ A desktop application for Google Messages built with Electron,
+ providing a native desktop experience for Google's web-based
+ messaging service.
+ .
+ Features include:
+  * Native desktop experience without browser tabs
+  * System tray integration with show/hide functionality  
+  * Desktop notifications support
+  * Comprehensive keyboard shortcuts
+  * Cross-platform window management
+  * Security configurations with context isolation
+ .
+ This application is a web wrapper that loads Google Messages
+ in a dedicated window and does not modify Google's code.

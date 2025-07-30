@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>google-messages-app</id>
+    <version>1.0.0</version>
+    <packageSourceUrl>https://github.com/YOUR_USERNAME/google-messages-app</packageSourceUrl>
+    <owners>Your Name</owners>
+    <title>Google Messages App</title>
+    <authors>Your Name</authors>
+    <projectUrl>https://github.com/YOUR_USERNAME/google-messages-app</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/YOUR_USERNAME/google-messages-app/main/assets/icon.png</iconUrl>
+    <copyright>2025 Your Name</copyright>
+    <licenseUrl>https://github.com/YOUR_USERNAME/google-messages-app/blob/main/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/YOUR_USERNAME/google-messages-app</projectSourceUrl>
+    <docsUrl>https://github.com/YOUR_USERNAME/google-messages-app/blob/main/README.md</docsUrl>
+    <bugTrackerUrl>https://github.com/YOUR_USERNAME/google-messages-app/issues</bugTrackerUrl>
+    <tags>google messages messaging sms electron desktop</tags>
+    <summary>Desktop Google Messages application built with Electron</summary>
+    <description><![CDATA[
+A desktop application for Google Messages built with Electron, providing a native desktop experience for Google's web-based messaging service.
+
+## Features
+
+- **Native Desktop Experience**: Dedicated window for Google Messages without browser tabs
+- **System Tray Integration**: Minimize to system tray with click-to-show/hide functionality
+- **Desktop Notifications**: Native notification support
+- **Keyboard Shortcuts**: Comprehensive shortcuts for common actions
+- **Cross-Platform**: Works on Windows, macOS, and Linux
+- **Security**: Configured with proper security settings and context isolation
+
+## How It Works
+
+This application is a web wrapper that loads Google Messages (https://messages.google.com) in a dedicated Electron window. It does not modify or access Google's code - all authentication and messaging functionality is handled by Google's existing web interface.
+
+The app provides desktop integration features like native window management, system tray integration, keyboard shortcuts, and desktop notifications.
+]]></description>
+    <releaseNotes>https://github.com/YOUR_USERNAME/google-messages-app/releases/tag/v1.0.0</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

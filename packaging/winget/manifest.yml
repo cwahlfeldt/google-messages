@@ -1,0 +1,94 @@
+# Created using wingetcreate
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.version.1.4.0.schema.json
+
+PackageIdentifier: YourName.GoogleMessagesApp
+PackageVersion: 1.0.0
+DefaultLocale: en-US
+ManifestType: version
+ManifestVersion: 1.4.0
+
+---
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.4.0.schema.json
+
+PackageIdentifier: YourName.GoogleMessagesApp
+PackageVersion: 1.0.0
+PackageLocale: en-US
+Publisher: Your Name
+PublisherUrl: https://github.com/YOUR_USERNAME
+PublisherSupportUrl: https://github.com/YOUR_USERNAME/google-messages-app/issues
+Author: Your Name
+PackageName: Google Messages App
+PackageUrl: https://github.com/YOUR_USERNAME/google-messages-app
+License: MIT
+LicenseUrl: https://github.com/YOUR_USERNAME/google-messages-app/blob/main/LICENSE
+Copyright: Copyright (c) 2025 Your Name
+CopyrightUrl: https://github.com/YOUR_USERNAME/google-messages-app/blob/main/LICENSE
+ShortDescription: Desktop Google Messages application built with Electron
+Description: |-
+  A desktop application for Google Messages built with Electron, providing a native desktop experience for Google's web-based messaging service.
+  
+  Features:
+  - Native desktop experience without browser tabs
+  - System tray integration with show/hide functionality
+  - Desktop notifications support
+  - Comprehensive keyboard shortcuts
+  - Cross-platform support
+  - Security configurations with context isolation
+  
+  This application is a web wrapper that loads Google Messages in a dedicated window and does not modify Google's code.
+Moniker: google-messages-app
+Tags:
+- electron
+- google
+- messages
+- messaging
+- sms
+- desktop
+- chat
+ReleaseNotes: |-
+  Initial release with core functionality:
+  - Complete Electron application wrapper for Google Messages
+  - System tray integration with show/hide functionality
+  - Desktop notifications support
+  - Comprehensive keyboard shortcuts and application menu
+  - Cross-platform window management
+  - Security configurations with context isolation
+ReleaseNotesUrl: https://github.com/YOUR_USERNAME/google-messages-app/releases/tag/v1.0.0
+PurchaseUrl: https://github.com/YOUR_USERNAME/google-messages-app
+InstallationNotes: The application will be available in your Start Menu and Desktop after installation.
+Documentations:
+- DocumentLabel: README
+  DocumentUrl: https://github.com/YOUR_USERNAME/google-messages-app/blob/main/README.md
+ManifestType: defaultLocale
+ManifestVersion: 1.4.0
+
+---
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.4.0.schema.json
+
+PackageIdentifier: YourName.GoogleMessagesApp
+PackageVersion: 1.0.0
+Platform:
+- Windows.Desktop
+MinimumOSVersion: 10.0.0.0
+InstallerType: nullsoft
+Scope: user
+InstallModes:
+- interactive
+- silent
+UpgradeBehavior: install
+Protocols:
+- sms
+- mms
+- tel
+FileExtensions:
+- sms
+- mms
+Installers:
+- Architecture: x64
+  InstallerUrl: https://github.com/YOUR_USERNAME/google-messages-app/releases/download/v1.0.0/GoogleMessages-v1.0.0-win.exe
+  InstallerSha256: PUT_ACTUAL_SHA256_HERE
+  InstallerSwitches:
+    Silent: /S
+    SilentWithProgress: /S
+ManifestType: installer
+ManifestVersion: 1.4.0

@@ -23,6 +23,19 @@ A desktop application for Google Messages built with Electron, providing a nativ
 - Node.js (v16 or later)
 - npm
 
+### Quick Setup
+```bash
+# Clone and install
+git clone https://github.com/YOUR_USERNAME/google-messages-app.git
+cd google-messages-app
+npm install
+
+# Set up environment (optional - for distribution)
+cp .env.example .env
+chmod +x scripts/*.sh
+./scripts/setup-env.sh
+```
+
 ### Install Dependencies
 ```bash
 npm install
@@ -90,11 +103,36 @@ The app provides desktop integration features like:
 - Desktop notifications
 - Native menus
 
+## Distribution Setup
+
+For distributing the app through package managers and app stores, see:
+- **[DISTRIBUTION-PLAN.md](./DISTRIBUTION-PLAN.md)** - Complete distribution strategy
+- **[INSTALLATION.md](./INSTALLATION.md)** - User installation guide
+- **Environment Setup**: Run `./scripts/setup-env.sh` for guided setup
+
+### Quick Distribution Setup
+```bash
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your certificates and API keys
+
+# Validate build environment
+./scripts/validate-build.sh
+
+# Encode certificates for GitHub Secrets
+./scripts/encode-certificate.sh
+
+# Create a release (triggers CI/CD)
+git tag v1.0.0
+git push origin v1.0.0
+```
+
 ## Troubleshooting
 
 ### App won't start
 - Ensure Node.js is installed (`node --version`)
 - Try reinstalling dependencies: `rm -rf node_modules && npm install`
+- Run validation: `./scripts/validate-build.sh`
 
 ### Notifications not working
 - Check system notification permissions for the app
@@ -103,6 +141,12 @@ The app provides desktop integration features like:
 ### Build fails
 - Ensure you have the latest version of electron-builder
 - Check that all dependencies are installed: `npm install`
+- Validate environment: `./scripts/validate-build.sh`
+
+### Distribution issues
+- Verify all environment variables in `.env`
+- Check GitHub Secrets are properly set
+- Review certificate encoding with `./scripts/encode-certificate.sh`
 
 ## License
 
