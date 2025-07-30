@@ -106,15 +106,11 @@ jobs:
             - **Flatpak (Linux)**: `flatpak install com.example.GoogleMessagesApp` _(coming soon)_
             - **Chocolatey (Windows)**: `choco install google-messages-app` _(coming soon)_
 
-      - name: Upload Release Assets
-        uses: softprops/action-gh-release@v1
+      - name: Create Release
+        uses: ncipollo/release-action@v1
         with:
-          token: ${{ secrets.GH_TOKEN }}
-          files: |
-            ./artifacts/**/*.dmg
-            ./artifacts/**/*.exe
-            ./artifacts/**/*.AppImage
-            ./artifacts/**/*.deb
+          artifacts: "./artifacts/**/*.dmg,./artifacts/**/*.exe,./artifacts/**/*.AppImage,./artifacts/**/*.deb"
+          token: ${{ github.token }}
           body: |
             ## Downloads
             - **macOS**: Download the `.dmg` file (unsigned - see installation instructions)
